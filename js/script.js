@@ -35,15 +35,15 @@ const filterButton = document.querySelector('#filter-btn'); // определе�
 
 filterButton.addEventListener('click', e => { // вешаем на кнопку слушатель событий
 	const typeInput = document.querySelector('#type'); // получаем данные селекта
-	const dataInput = document.querySelector('#data');
+	const dataInput = document.querySelector('#data'); // получаем данные инпута
 
-	if (dataInput.value === '') {
-		dataInput.setCustomValidity('Поле не должно быть пустым!');
-		showNoResults();
-	} else {
-		dataInput.setCustomValidity('');
-		e.preventDefault();
-		tryFilterByType(typeInput.value.trim(), dataInput.value.trim());
+	if (dataInput.value === '') { // условие, если значение инпута равен пусто
+		dataInput.setCustomValidity('Поле не должно быть пустым!'); // валидатор на ввод пустой строки
+		showNoResults(); // функция показа результата
+	} else { // иначе
+		dataInput.setCustomValidity(''); // проверить введенную информацию
+		e.preventDefault(); // сброс стандартного поведения
+		tryFilterByType(typeInput.value.trim(), dataInput.value.trim()); // undefined
 	}
 });
 
